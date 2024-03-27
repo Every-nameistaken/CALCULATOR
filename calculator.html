@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        * {
+            -webkit-user-select: none;
+            user-select: none;
+            font-size: large;
+            font-family: monospace;
+        }
+
+        #calc {
+            background-color: black;
+            width: 300px;
+            box-shadow: 1px 1px 7px 5px white;
+            margin: auto;
+            text-align: center;
+            height: 500px;
+        }
+
+        #inp {
+            width: 90%;
+            margin: auto;
+            margin-top: 20px !important;
+            height: 30%;
+            margin-top: 10px;
+        }
+
+        #display {
+            width: 97%;
+            height: 50%;
+            margin-top: 35px;
+            font-size: 45px;
+            border: none;
+            outline: none;
+            color: rgb(106, 61, 61);
+            background-color: rgb(247, 242, 242);
+            /*transform: rotate(180deg);
+          transform: skew(150deg,100deg);*/
+        }
+
+        #display::placeholder {
+            color: rgb(113, 92, 92);
+        }
+
+        #nums,
+        .nums2,
+        .nums3,
+        .nums4 {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            margin-top: 5px;
+        }
+
+        .nums5 {
+            display: flex;
+            width: 100%;
+            margin-top: 5px;
+
+        }
+
+        .nums5 div {
+            margin: 0 13px;
+        }
+
+        .nums5 div:first-child button {
+            width: 123px;
+            height: 50px;
+            border-radius: 30px;
+        }
+
+        .firstThree {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: none;
+            margin-top: 5px;
+            transition: .1s;
+            background-color: gray;
+        }
+
+        .firstThree:active {
+            background-color: white;
+        }
+
+        .numbers {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: none;
+            margin-top: 5px;
+            background-color: rgb(69, 62, 62);
+            color: white;
+            transition: .1s;
+        }
+
+        .numbers:active {
+            background-color: rgb(147, 120, 120);
+        }
+
+        .arithOps {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: none;
+            margin-top: 5px;
+            background-color: goldenrod;
+            color: white;
+            transition: .2s;
+        }
+
+        .arithOps:active {
+            background-color: white;
+            color: goldenrod;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calc">
+        <div id="inp">
+            <input type="text" name="screen" id="display" placeholder="0">
+        </div>
+        <div id="nums">
+            <div>
+                <button class="firstThree" type="reset" onclick="reset()">AC</button>
+            </div>
+            <div>
+                <button class="firstThree" onclick="key('+/-')">+/-</button>
+            </div>
+            <div>
+                <button class="firstThree" onclick="key('%')">%</button>
+            </div>
+            <div>
+                <button class="arithOps" onclick="key('/')">/</button>
+            </div>
+        </div>
+        <div class="nums2">
+            <div><button class="numbers" onclick="key('7')">7</button></div>
+            <div><button class="numbers" onclick="key('8')">8</button></div>
+            <div><button class="numbers" onclick="key('9')">9</button></div>
+            <div><button class="arithOps" onclick="key('*')">x</button></div>
+        </div>
+        <div class="nums3">
+            <div><button class="numbers" onclick="key('4')">4</button></div>
+            <div><button class="numbers" onclick="key('5')">5</button></div>
+            <div><button class="numbers" onclick="key('6')">6</button></div>
+            <div><button class="arithOps" onclick="key('-')">-</button></div>
+        </div>
+        <div class="nums4">
+            <div><button class="numbers" onclick="key('1')">1</button></div>
+            <div><button class="numbers" onclick="key('2')">2</button></div>
+            <div><button class="numbers" onclick="key('3')">3</button></div>
+            <div><button class="arithOps" onclick="key('+')">+</button></div>
+        </div>
+        <div class="nums5">
+            <div><button class="numbers" onclick="key('0')">0</button></div>
+            <div><button class="numbers" onclick="key('.')">.</button></div>
+            <div><button class="arithOps" onclick="equals()">=</button></div>
+        </div>
+
+    </div>
+
+    <script>
+        var myvalue
+
+
+        function key(number) {
+            myvalue = document.getElementById('display').value += number;
+            console.log(myvalue);
+        }
+
+        function reset() {
+            document.getElementById('display').value = "";
+        }
+
+        function equals() {
+            summ = eval(myvalue)
+            document.getElementById('display').value = summ;
+
+        }
+        let val = document.getElementById('display');
+        let valLenght = val.value.length;
+        console.log(valLenght)
+
+        if (val > 7) {
+            document.getElementById('display').style.fontSize = '10px'
+        } else {
+            document.getElementById('display').style.fontSize = '45px'
+        }
+    </script>
+</body>
+
+</html>
