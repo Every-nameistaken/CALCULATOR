@@ -124,7 +124,7 @@
 <body>
     <div id="calc">
         <div id="inp">
-            <input type="text" name="screen" id="display" placeholder="0">
+            <input type="text" name="screen" id="display" placeholder="0" value="">
         </div>
         <div id="nums">
             <div>
@@ -184,11 +184,12 @@
             document.getElementById('display').value = summ;
 
         }
-        let val = document.getElementById('display');
-        let valLenght = val.value.length;
+        
+        let val = document.getElementById('display').value;
+        let valLenght = val.length;
         console.log(valLenght)
 
-        if (val > 7) {
+        if (valLenght > 7) {
             document.getElementById('display').style.fontSize = '10px'
         } else {
             document.getElementById('display').style.fontSize = '45px'
