@@ -45,6 +45,8 @@
 
         #display::placeholder {
             color: rgb(113, 92, 92);
+            font-size: 45px;
+            margin-top: 6px;
         }
 
         #nums,
@@ -124,7 +126,7 @@
 <body>
     <div id="calc">
         <div id="inp">
-            <input type="text" name="screen" id="display" placeholder="0">
+            <input type="text" name="screen" id="display" placeholder="0" value="">
         </div>
         <div id="nums">
             <div>
@@ -167,12 +169,28 @@
     </div>
 
     <script>
-        var myvalue
+      
 
 
         function key(number) {
             myvalue = document.getElementById('display').value += number;
             console.log(myvalue);
+
+
+        let disp = document.getElementById('display');
+
+        let val = document.getElementById('display');
+        let numberCounter = val.value.length;
+        console.log(numberCounter)
+        if(numberCounter < 9){
+            disp.style.fontSize = '45px';
+        }else if (numberCounter >= 9 && numberCounter <= 13) {
+            disp.style.fontSize = '35px'
+        } else if(numberCounter >= 14 && numberCounter <= 19){
+            disp.style.fontSize = '25px'
+        } else if(numberCounter > 19){
+            disp.style.fontSize = '15px'
+        }
         }
 
         function reset() {
@@ -184,15 +202,8 @@
             document.getElementById('display').value = summ;
 
         }
-        let val = document.getElementById('display');
-        let valLenght = val.value.length;
-        console.log(valLenght)
-
-        if (val > 7) {
-            document.getElementById('display').style.fontSize = '10px'
-        } else {
-            document.getElementById('display').style.fontSize = '45px'
-        }
+        
+       
     </script>
 </body>
 
